@@ -6,14 +6,32 @@
     <title>Document</title>
   </head>
   <body>
-    // Array Traversing means checking for each and every element and Accessing
-    means specific element access
+    <!-- // Array Traversing means checking for each and every element and Accessing
+    means specific element access -->
+
     <h1>Array Traversing and Accessing</h1>
+
+    <input type="text" id="element" />
+
+    <button onclick="getElement()">Get Element</button>
 
     <script>
       let data = [8, 45, 3, 5, 45, 57, 66, 44, 23, 33, 12, 55, 77];
-      for (let i = 0; i < data.length; i++) {
-        document.write(`Array element ${i} is ${data[i]} <br/>`);
+      // for (let i = 0; i < data.length; i++) {
+      //   document.write(`Array element ${i} is ${data[i]} <br/>`);
+      // }
+      // document.write(`Array  3rd element  is ${data[3]} `);
+
+      // let x = 0;
+      // document.write(`Array  0th element  is ${data[x]}`);
+
+      function getElement() {
+        let el = document.getElementById("element").value;
+        if (el > -1 && el < data.length && typeof parseInt(el) === "number") {
+          alert(data[el]);
+        } else {
+          alert("please enter valid input");
+        }
       }
     </script>
   </body>
