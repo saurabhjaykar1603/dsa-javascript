@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <input id="position" type="text" placeholder="enter new position" />
+    <input id="newEL" type="text" placeholder="enter new element" />
+    <button onclick="insertEL()">Insert New Element</button>
+
+    <script>
+      //ex 2
+      function insertEL() {
+        alert("Insert");
+        let data = [60, 10, 30, 67, 40];
+        let newEL = parseInt(document.getElementById("newEL").value);
+        let position = parseInt(document.getElementById("position").value);
+        newEL = parseInt(newEL);
+        console.warn(data);
+        for (let index = data.length - 1; index >= 0; index--) {
+          if (index >= position) {
+            data[index + 1] = data[index];
+            if (index == position) {
+              data[index] = newEL;
+            }
+          }
+        }
+        console.warn(data);
+      }
+
+      // ex 1 let data = [60, 10, 30, 67, 40];
+      //   let newEL = 70;
+      //   let position = 2;
+      //   console.warn(data);
+      //   for (let index = data.length - 1; index >= 0; index--) {
+      //     if (index >= position) {
+      //       data[index + 1] = data[index];
+      //       if (index === position) {
+      //         data[index] = newEL;
+      //       }
+      //     }
+      //   }
+      //   console.warn(data);
+
+      //   This HTML document contains a script that manipulates an array called `data`. Here's a breakdown of what the script does:
+
+      // 1. It initializes an array called `data` with some numbers `[60, 10, 30, 67, 40]`.
+
+      // 2. It initializes a variable `newEL` with the value `70`, which presumably represents a new element to be inserted into the array.
+
+      // 3. It initializes a variable `position` with the value `2`, which presumably represents the position in the array where the new element should be inserted.
+
+      // 4. It logs the original `data` array to the console using `console.warn()`.
+
+      // 5. It loops through the `data` array in reverse order, starting from the last element (`data.length - 1`) and moving towards the first element (`0`).
+
+      // 6. Within the loop, it checks if the current index is greater than or equal to the `position` variable. If it is, it shifts each element to the right by one position to make room for the new element.
+
+      // 7. When the loop reaches the index equal to `position`, it inserts the `newEL` value into that position.
+
+      // 8. After the loop completes, it logs the modified `data` array to the console using `console.warn()`.
+
+      // So, after running this script, the `data` array would have the `newEL` value inserted at the specified position, and all subsequent elements would be shifted to the right. The modified array will be logged to the console, displaying the result of the insertion.
+    </script>
+  </body>
+</html>
