@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>indirect recursion</title>
+    <script>
+      let money = 100;
+      let totalApple = 0;
+
+      function buyApple(x) {
+        if (x >= 10) {
+          console.warn("I have", x, "rs", totalApple);
+          buyMore(x);
+        } else {
+          console.warn(
+            "I don't have enough money to buy apples. Total apples bought:",
+            totalApple
+          );
+        }
+      }
+
+      function buyMore(x) {
+        if (x >= 10) {
+          totalApple++;
+          buyApple(x - 10);
+        } else {
+          console.warn(
+            "I don't have enough money to buy more apples. Total apples bought:",
+            totalApple
+          );
+        }
+      }
+
+      buyApple(money);
+    </script>
+  </head>
+  <body></body>
+</html>
