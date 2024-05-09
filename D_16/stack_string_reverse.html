@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reverse String with stack in JS</title>
+    <script>
+      // Initialize the stack as an empty array.
+      let data = [];
+      // Variable to keep track of the current size of the stack.
+      let currentSize = data.length;
+
+      // Function to push a value into the stack.
+      function push(newValue) {
+        // Add a new value at the index equal to currentSize, expanding the array.
+        data[currentSize] = newValue;
+        // Increment the size to reflect the added element.
+        currentSize++;
+      }
+
+      // Function to pop a value from the stack.
+      function pop() {
+        // Check if the stack is not empty.
+        if (currentSize > 0) {
+          // Access the last element in the stack.
+          let lastElement = data[currentSize - 1];
+          // Decrease the size of the stack by one.
+          currentSize--;
+          // Reduce the length of the array to remove the last element.
+          data.length = currentSize;
+          // Return the last element.
+          return lastElement;
+        }
+      }
+
+      // Function to reverse a string using the stack.
+      function reverseString(item) {
+        // Push each character of the string onto the stack.
+        for (let i = 0; i < item.length; i++) {
+          push(item[i]);
+        }
+        // Pop each character from the stack and replace them in the original array.
+        for (let i = 0; i < item.length; i++) {
+          item[i] = pop();
+        }
+        // Return the modified array as a string.
+        return item.join("");
+      }
+
+      // Example string to reverse.
+      let str = "anil";
+      // Split the string into an array of characters, reverse it, and store the result.
+      let reversedStr = reverseString(str.split(""));
+      // Output the reversed string to the console.
+      console.warn(reversedStr);
+    </script>
+  </head>
+  <body></body>
+</html>
