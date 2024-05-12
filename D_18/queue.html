@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Queue in JS</title>
+</head>
+<body>
+    <h1>Queue in JS</h1>
+    <script>
+        // Initialize an array to hold the queue items
+        let item = [];
+        // Variable to track the current number of items in the queue
+        let currentSize = item.length;
+        // Maximum number of items the queue can hold
+        let maxSize = 5;
+
+        // Function to add a new item to the end of the queue
+        function enqueue(newValue) {
+            // Check if the queue is already full
+            if (currentSize >= maxSize) {
+                alert("Queue is full now");
+            } else {
+                // Add the new item at the position of the currentSize
+                item[currentSize] = newValue;
+                console.log(`New value ${newValue} added to the queue`);
+                // Increment the size of the queue
+                currentSize++;
+            }
+        }
+
+        // Function to remove the item at the front of the queue
+        function dequeue() {
+            // Check if the queue contains any items
+            if (currentSize > 0) {
+                // Store the item being removed
+                let removedElement = item[0];
+                // Shift all items to the left, overwriting the removed element
+                for (let i = 0; i < item.length - 1; i++) {
+                    item[i] = item[i + 1];
+                }
+                // Decrease the size of the queue
+                currentSize--;
+                // Adjust the length of the array to match the currentSize
+                item.length = currentSize;
+                console.log(`Removed element is ${removedElement}`);
+            } else {
+                alert("Queue is already empty");
+            }
+        }
+
+        // Function to display all items in the queue
+        function display() {
+            console.warn("Queue", item);
+        }
+
+        // Test the queue operations
+        enqueue(10); // Add 10 to the queue
+        enqueue(20); // Add 20 to the queue
+        enqueue(30); // Add 30 to the queue
+        display();   // Display current queue contents
+    </script>
+</body>
+</html>
