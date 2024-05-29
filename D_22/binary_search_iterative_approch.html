@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Binary Search Iterative Approch in JavaScript</title>
+    <script>
+      let data = [5, 9, 13, 17]; // data array to search within
+      let find = 17; // element to search for
+      let start = 0; // starting index of the array
+      let end = data.length - 1; // ending index of the array
+      let position = undefined; // variable to store the position of the found element
+
+      while (start <= end) {
+        let mid = Math.floor((start + end) / 2); // calculate the middle index
+
+        if (data[mid] === find) {
+          position = mid; // if element at mid is the element we're searching for
+          break; // exit the loop
+        } else if (data[mid] < find) {
+          start = mid + 1; // if element at mid is less than the element we're searching for, ignore the left half
+        } else {
+          end = mid - 1; // if element at mid is greater, ignore the right half
+        }
+      }
+
+      console.warn(`${position} position and ${data[position]} element`); // output the position and element found
+    </script>
+  </head>
+  <body></body>
+</html>
