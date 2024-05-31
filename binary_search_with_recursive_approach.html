@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>binary_search_with_recursive_approach</title>
+    <script>
+      let data = [10, 15, 18, 34, 67, 70, 89];
+      let start = 0;
+      let end = data.length - 1;
+      let find = 67;
+      let position = undefined;
+
+      function recursiveBinary(data, start, end) {
+        let mid = Math.floor((start + end) / 2); // to find middle element
+        if (data[mid] === find) {
+          position = mid; // if mid is finding elment so stop the exucution and return
+          return;
+        } else if (data[mid] < find) {
+          recursiveBinary(data, mid + 1, end); // if mid is less than finding element call function again and start with right side
+        } else {
+          recursiveBinary(data, start, mid - 1); // if mid is greater tham finding element call function again start with 0 and end is mid -1 element
+        }
+      }
+      recursiveBinary(data, start, end);
+      console.warn(`position ${position} and element ${data[position]}`);
+    </script>
+  </head>
+  <body></body>
+</html>
