@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Selection Sorting</title>
+    <script>
+      let item = [20, 12, 53, 3];
+      let n = item.length;
+      function selectionSort() {
+        let midValue;
+        for (let i = 0; i < n; i++) {
+          midValue = i;
+          for (let j = i + 1; j < n; j++) {
+            if (item[j]< item[midValue]){
+                midValue = j;
+                console.warn("mid value ",midValue);
+            }
+          }
+          let temp = item[midValue];
+          item[midValue] = item[i];
+          item[i] = temp;
+        }
+      }
+      selectionSort();
+      console.log(item);
+    </script>
+  </head>
+  <body></body>
+</html>
